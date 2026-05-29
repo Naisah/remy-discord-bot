@@ -3,12 +3,10 @@ import os
 from discord.ext import commands
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
 load_dotenv()
 
 client = commands.Bot(command_prefix='!')
 
-# Retrieve token from environment variables
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 
@@ -16,18 +14,14 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 async def on_ready():
     print('Remy is ready!')
 
-# commands for remy
-
 
 @client.command()
 async def ping(ctx):
-
     await ctx.send(':ping_pong: pong!')
 
 
 @client.command()
 async def say(ctx, *, message=None):
-
     if message == None:
         await ctx.send('Please provide a message!')
         return
@@ -37,10 +31,7 @@ async def say(ctx, *, message=None):
 
 @client.command()
 async def userinfo(ctx, user: discord.User):
-
     await ctx.send(user.id)
-
-# commands for cog
 
 
 @client.command()

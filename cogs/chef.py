@@ -8,7 +8,6 @@ class Chef(commands.Cog):
 
     @commands.command()
     async def cook(self, ctx, *ingredients):
-        """Pairs ingredients together or suggests a gourmet dish!"""
         if not ingredients:
             dishes = [
                 ("Ratatouille", "A rustic masterpiece! Layered thin slices of zucchini, yellow squash, eggplant, and tomatoes, roasted over a piping hot piperade of bell peppers and garlic. Simple, yet extraordinary! 🍅🍆"),
@@ -25,7 +24,6 @@ class Chef(commands.Cog):
             )
             return
 
-        # Lowercase ingredients for easy matching
         ing_list = [i.lower() for i in ingredients]
         
         if any(x in ing_list for x in ["cheese", "keju"]) and any(y in ing_list for y in ["apple", "strawberry", "fruit", "apel"]):
@@ -51,7 +49,6 @@ class Chef(commands.Cog):
 
     @commands.command()
     async def rate(self, ctx, *, dish: str):
-        """Remy critiques your food choice!"""
         dish_lower = dish.lower()
         
         bad_foods = ["instant noodle", "ramen pack", "canned soup", "cardboard", "junk food", "mcdonald", "fast food", "expired"]
@@ -78,7 +75,6 @@ class Chef(commands.Cog):
 
     @commands.command()
     async def gusteau(self, ctx):
-        """Share cooking inspiration from the great Chef Auguste Gusteau!"""
         quotes = [
             "\"Anyone can cook, but only the fearless can be great!\" 🥖✨",
             "\"You must not let anyone define your limits because of where you come from. Your only limit is your soul.\" 🌟",
